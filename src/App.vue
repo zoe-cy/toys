@@ -4,8 +4,9 @@
   </div>
 </template>
 <script>
-import Index from './components/index'
+import Index from './pages/index'
 export default {
+  name: 'app',
   components: {
     Index
   }

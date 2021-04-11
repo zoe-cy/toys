@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import index from '../components/index'
+import index from '../pages/index'
 
 Vue.use(VueRouter)
 const router = new VueRouter({
