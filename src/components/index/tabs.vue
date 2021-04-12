@@ -74,6 +74,14 @@ export default {
 }
 </script>
 <style scoped>
+.tabs {
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 99;
+  width: 500px;
+  height: 500px;
+}
 .list {
     height: 100%;
     display: flex;

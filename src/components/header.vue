@@ -35,6 +35,13 @@ export default {
 }
 </script>
 <style scoped>
+.header {
+  text-align: center;
+  margin: 0 auto;
+  width: 1100px;
+  line-height: 100px;
+  background-color: rgb(253, 253, 253);
+}
 .logo {
   float: left;
   width: 100px;

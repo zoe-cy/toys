@@ -1,5 +1,5 @@
 <template>
-  <div class="container">
+  <div class="banners">
     <swiper
       ref="mySwiper"
       :options="swiperOptions"
@@ -52,6 +52,7 @@ export default {
   },
   mounted () {
     // this.swiper.slideTo(3, 1000, false)
+    console.log('list', this.bannerList)
   },
   components: {
     Swiper,
@@ -60,11 +61,15 @@ export default {
 }
 </script>
 <style scoped>
-.container {
-    /* width: 100%;
-    height: 500px; */
-    overflow: hidden;
-    --swiper-theme-color: rgb(241, 180, 24);
+.banners {
+  width: 100%;
+  height: 500px;
+  position: absolute;
+  right: 0;
+  top: 0;
+  z-index: 2;
+  overflow: hidden;
+  --swiper-theme-color: rgb(241, 180, 24);
 }
 .swiper-slide {
     width: 100%;

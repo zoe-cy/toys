@@ -3,25 +3,15 @@
     <el-container>
       <el-header>
         <t-header></t-header>
-      </el-header>
-      <!-- main -->
-      <el-container class="main">
-        <!-- banner -->
-        <el-container class="container clearfix">
-        <!-- banner z-index2-->
-        <el-main class="ban">
+        <div class="box clearfix">
+           <!-- banner z-index2 tabs z-index99-->
           <banners :bannerList="bannerList"></banners>
-        </el-main>
-        <!-- 导航栏 z-index3-->
-        <el-main class="tabs">
           <t-tab></t-tab>
-        </el-main>
-        </el-container>
-        <!-- hot -->
-        <el-main class="hot">
-          <t-hot></t-hot>
-        </el-main>
-      </el-container>
+        </div>
+      </el-header>
+      <el-main class="main">
+        <t-hot></t-hot>
+      </el-main>
       <el-footer>
         <t-footer></t-footer>
       </el-footer>
@@ -38,9 +28,9 @@ export default {
   components: {
     banners,
     tHeader,
-    tTab,
     tFooter,
-    tHot
+    tHot,
+    tTab
   },
   data () {
     return {
@@ -54,62 +44,33 @@ export default {
 </script>
 <style scoped>
 .index {
-  width: 100%!important;
 }
 .el-header {
-  width: 1100px;
-  margin: 0 auto;
-  text-align: center;
-  height: 100px !important;
-  line-height: 100px;
+  padding: 0;
+  height: 600px !important;
+  background-color: rgb(253, 253, 253);
 }
-.main {
-  height: 800px;
-  position: relative;
-}
-.container {
-  width: 1100px;
+.box {
   height: 500px;
-  position: absolute;
+  width: 1100px;
+  position: relative;
   margin: 0 auto;
   left: 0;
   top: 0;
   right: 0;
   bottom: 0;
   overflow: hidden;
-  clear: both!important;
-}
-.container.ban{
-  position: absolute;
-  right: 0;
-  top: 0;
-  z-index: 2;
-  width: 100%;
-  height: 500px;
-}
-.container .tabs {
-  position: absolute;
-  left: 0;
-  top: 0;
-  z-index: 3;
-  width: 500px;
-  height: 500px;
 }
 .el-main {
   text-align: center;
   padding: 0;
+  margin: 0 auto;
 }
-.hot {
-  position: absolute;
-  top: 500px;
-  left: 0;
-  width: 100%!important;
-  height: 300px;
-  background-color: rgba(212, 212, 212, 0.1);
+.main {
+  width: 1100px!important;
 }
 .el-footer {
-  text-align: center;
   padding: 0;
-  line-height: 200px;
+  min-width: 1100px;
 }
 </style>

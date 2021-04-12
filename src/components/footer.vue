@@ -27,13 +27,16 @@ export default {
 </script>
 <style scoped>
 .footer {
+  text-align: center;
+  line-height: 200px;
 }
 .top {
+  background-color: rgb(253, 253, 253);
   height: 70px;
   overflow: hidden;
   display: flex;
   margin-bottom: 20px;
-  border-bottom: 1px solid rgb(130, 130, 130,.4);
+  /* border-bottom: 1px solid rgb(130, 130, 130,.4); */
 }
 .top li {
   height: 70px;
