@@ -1,20 +1,34 @@
 <template>
   <div class="header">
-    <div class="logo">
-      <img src="../assets/logo.png" />
-    </div>
-    <div class="nav">
-      <ul>
-        <li v-for="(item, i) in kinds" :key="i">{{ item }}</li>
-      </ul>
-    </div>
-    <div class="search">
-      <input class="ipt" type="search" placeholder="滚珠" autocomplete="true" />
-      <i class="btn iconfont icon-sousuo"></i>
-    </div>
-    <div class="cars">
-      <i class="btn2 iconfont icon-icone6002_"></i>
-      <span>购物车（{{ num }}）</span>
+    <div class="box">
+      <div class="logo">
+        <img src="../assets/logo.png" />
+      </div>
+      <div class="nav">
+        <ul>
+          <li
+            v-for="(item, i) in categories"
+            :key="i"
+            @click="toGoodsList(item.category)"
+          >
+            {{ item.kind }}
+          </li>
+        </ul>
+      </div>
+      <div class="search">
+        <input
+          class="ipt"
+          type="search"
+          placeholder="滚珠"
+          autocomplete="true"
+          v-model="msg"
+        />
+        <i class="btn iconfont icon-sousuo" @click="toGoodsList(msg)"></i>
+      </div>
+      <div class="cars" @click="toCars">
+        <i class="btn2 iconfont icon-icone6002_"></i>
+        <span>购物车（{{ num }}）</span>
+      </div>
     </div>
   </div>
 </template>
@@ -23,24 +37,40 @@ export default {
   data () {
     return {
       num: 0,
-      kinds: [
-        '婴儿系列',
-        '益智系列',
-        '拼图系列',
-        '轨道系列'
+      msg: '',
+      categories: [
+        {
+          category: 1,
+          kind: '婴儿系列'
+        },
+        {
+          category: 2,
+          kind: '益智系列'
+        }
       ]
     }
   },
-  methods: {}
+  methods: {
+    toGoodsList (category) {
+      this.$router.push({ name: 'goodsList', params: { category } })
+    },
+    toCars () {
+      this.$router.push({ name: 'cars' })
+    }
+  }
 }
 </script>
 <style scoped>
 .header {
   text-align: center;
-  margin: 0 auto;
-  width: 1100px;
+  width: 100%;
+  height: 100px;
   line-height: 100px;
   background-color: rgb(253, 253, 253);
+}
+.box {
+  width: 1100px;
+  margin: 0 auto;
 }
 .logo {
   float: left;

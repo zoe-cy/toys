@@ -1,42 +1,33 @@
 <template>
   <div class="index">
-    <el-container>
-      <el-header>
-        <t-header></t-header>
-        <div class="box clearfix">
-           <!-- banner z-index2 tabs z-index99-->
-          <banners :bannerList="bannerList"></banners>
-          <t-tab></t-tab>
-        </div>
-      </el-header>
-      <el-main class="main">
-        <t-hot></t-hot>
-      </el-main>
-      <el-footer>
-        <t-footer></t-footer>
-      </el-footer>
-    </el-container>
+    <t-header></t-header>
+    <div class="main">
+      <div class="box clearfix">
+      <!-- banner z-index2 tabs z-index99-->
+      <banners :bannerList="bannerList"></banners>
+      <t-tabs></t-tabs>
+    </div>
+    </div>
+    <t-goodsbox></t-goodsbox>
+    <t-footer></t-footer>
   </div>
 </template>
 <script>
 import tHeader from '../components/header'
-import banners from '../components/index/banners'
-import tTab from '../components/index/tabs'
 import tFooter from '../components/footer'
-import tHot from '../components/index/hot'
+import banners from '../components/index/banners'
+import tTabs from '../components/index/tabs'
+import tGoodsbox from '../components/goodsBox'
 export default {
   components: {
-    banners,
     tHeader,
     tFooter,
-    tHot,
-    tTab
+    banners,
+    tGoodsbox,
+    tTabs
   },
   data () {
-    return {
-      num: 0,
-      bannerList: [{ title: 'goods1', picUrl: require('../assets/news.png') }, { title: 'goods2', picUrl: require('../assets/teas.png') }]
-    }
+    return {}
   },
   methods: {
   }
@@ -50,6 +41,10 @@ export default {
   height: 600px !important;
   background-color: rgb(253, 253, 253);
 }
+.main {
+  width: 100%;
+  background-color: rgb(253, 253, 253);
+}
 .box {
   height: 500px;
   width: 1100px;
@@ -60,17 +55,6 @@ export default {
   right: 0;
   bottom: 0;
   overflow: hidden;
-}
-.el-main {
   text-align: center;
-  padding: 0;
-  margin: 0 auto;
-}
-.main {
-  width: 1100px!important;
-}
-.el-footer {
-  padding: 0;
-  min-width: 1100px;
 }
 </style>

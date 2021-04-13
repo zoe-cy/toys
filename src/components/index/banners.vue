@@ -6,9 +6,10 @@
     >
       <swiper-slide
         class="swiper-slide"
-        v-for="(item, i) in bannerList"
-        :key="i"
+        v-for="item in bannerList"
+        :key="item.id"
         :style="{ backgroundImage: 'url('+item.picUrl+')'}"
+        @click="toGoodsDetail(item.id)"
       >
        <!-- <img :src="item.picUrl" alt="this is a produnction picture" /> -->
       </swiper-slide>
@@ -23,9 +24,10 @@ import { Swiper, SwiperSlide } from 'vue-awesome-swiper'
 import 'swiper/css/swiper.css'
 export default {
   name: 'banners',
-  props: ['bannerList'],
+  // props: ['bannerList'],
   data () {
     return {
+      bannerList: [{ id: 1, title: 'goods1', picUrl: require('../../assets/news.png') }, { id: 2, title: 'goods2', picUrl: require('../../assets/teas.png') }],
       swiperOptions: {
         pagination: {
           el: '.swiper-pagination',
@@ -45,6 +47,11 @@ export default {
       }
     }
   },
+  methods: {
+    toGoodsDetail (id) {
+      this.$router.push({ name: 'goodsDetail', params: { id } })
+    }
+  },
   computed: {
     swiper () {
       return this.$refs.mySwiper.$swiper
@@ -52,7 +59,6 @@ export default {
   },
   mounted () {
     // this.swiper.slideTo(3, 1000, false)
-    console.log('list', this.bannerList)
   },
   components: {
     Swiper,

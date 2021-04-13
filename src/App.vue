@@ -1,16 +1,14 @@
 <template>
   <div id="app">
-    <index></index>
+    <router-view></router-view>
   </div>
 </template>
 <script>
-import Index from './pages/index'
 export default {
-  name: 'app',
-  components: {
-    Index
+  created () {
+    this.$route.push({ name: 'index' })
   }
 }
 </script>
-<style>
+<style scoped>
 </style>
