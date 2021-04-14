@@ -20,10 +20,11 @@
     >
       <ul>
         <li
-          v-for="(item, i) in goodslist"
-          :key="i"
+          v-for="item in goodsList"
+          :key="item.id"
+          @click="toGoodsDetail(item.id)"
         >
-          <span>{{item}}</span>
+          <span>{{item.title}}</span>
         </li>
       </ul>
     </div>
@@ -35,10 +36,26 @@ export default {
     return {
       hover: -1,
       sorting: [{ id: 1, title: '布偶' }, { id: 2, title: '积木' }],
-      goodslist: ['布偶1', '布偶2', '布偶2', '布偶2', '布偶2', '布偶2', '布偶2', '布偶1']
+      goodsList: [
+        {
+          id: '1001',
+          title: '拼图126片拼图126片拼图126片拼图126片拼图126片拼图126片',
+          series: '婴儿系列',
+          seriesId: '01',
+          category: '拼图',
+          categoryId: '01',
+          attr: '模拟真实情景',
+          price: 199,
+          min_price: 100,
+          picUrl: require('../../assets/teas.png')
+        }
+      ]
     }
   },
   methods: {
+    toGoodsDetail (id) {
+      this.$router.push({ name: 'goodsDetail', params: { id } })
+    }
     // tab () {
     //   console.log('f', this.flag)
     //   this.$nextTick(function () {
@@ -98,7 +115,7 @@ export default {
     flex-direction: column;
     justify-content: center;
     padding: 0 20px;
-    color: rgb(253, 253, 253);
+    color: var(--background-color);
 }
 .list li span:first-child {
     float: left;

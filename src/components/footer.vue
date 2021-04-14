@@ -5,7 +5,7 @@
         v-for="(item, i) in serves"
         :key="i"
       >
-        <span>{{item}}</span>
+        <span @click="toServes(item.serveId)">{{item.serve}}</span>
         <span class="line"></span>
       </li>
     </ul>
@@ -20,7 +20,16 @@
 export default {
   data () {
     return {
-      serves: ['全场满69包邮', '7天无理由退货', '15天免费换货']
+      serves: [
+        { serve: '全场满69包邮', serveId: 1 },
+        { serve: '7天无理由退货', serveId: 1 },
+        { serve: '15天免费换货', serveId: 1 }
+      ]
+    }
+  },
+  methods: {
+    toServes (serveId) {
+      this.$router.push({ name: 'serves', params: { serveId } })
     }
   }
 }
@@ -31,7 +40,7 @@ export default {
   line-height: 200px;
 }
 .top {
-  background-color: rgb(253, 253, 253);
+  background-color: var(--background-color);
   height: 70px;
   overflow: hidden;
   display: flex;

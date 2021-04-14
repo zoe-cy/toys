@@ -1,13 +1,11 @@
 <template>
-  <div class="goodsList">
-    <div class="header">
-      <span>首页</span>>
-      <span>全部结果</span>>
-      <span>{{goodsList[0].category}}</span>
-      <span class="right">销量</span>
-      <span class="right">价格</span>
-    </div>
-    <t-goodsbox></t-goodsbox>
+  <div class="goodsSearch">
+      <div>
+          <span>首页</span>>
+          <span>全部结果</span>>
+          <span>{{goodsList[0].kind}}</span>
+      </div>
+      <t-goodsbox></t-goodsbox>
   </div>
 </template>
 <script>
@@ -38,12 +36,5 @@ export default {
 }
 </script>
 <style scoped>
-.goodsList {
-  /* width: 100%; */
-}
-.header {
-  width: 1100px;
-  line-height: 80px;
-  margin: 0 auto;
-}
+
 </style>

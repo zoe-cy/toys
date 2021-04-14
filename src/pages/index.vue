@@ -1,49 +1,80 @@
 <template>
   <div class="index">
-    <t-header></t-header>
     <div class="main">
       <div class="box clearfix">
       <!-- banner z-index2 tabs z-index99-->
-      <banners :bannerList="bannerList"></banners>
+      <banners></banners>
       <t-tabs></t-tabs>
     </div>
     </div>
-    <t-goodsbox></t-goodsbox>
-    <t-footer></t-footer>
+    <div class="goodsbox" v-for="item in goodsList" :key="item.category">
+      <div class="header">
+        <span>{{item.category}}</span>
+        <div class="right" @click="toGoodsList(item.category)">
+          <span>查看全部</span>
+          <span>></span>
+        </div>
+      </div>
+      <t-goodsbox :tHeight="tHeight"></t-goodsbox>
+    </div>
   </div>
 </template>
 <script>
-import tHeader from '../components/header'
-import tFooter from '../components/footer'
 import banners from '../components/index/banners'
 import tTabs from '../components/index/tabs'
 import tGoodsbox from '../components/goodsBox'
 export default {
   components: {
-    tHeader,
-    tFooter,
     banners,
     tGoodsbox,
     tTabs
   },
   data () {
-    return {}
+    return {
+      tHeight: {
+        height: '510px'
+      },
+      goodsList: [
+        {
+          id: '1001',
+          title: '拼图126片拼图126片拼图126片拼图126片拼图126片拼图126片',
+          series: '婴儿系列',
+          seriesId: '01',
+          category: '拼图',
+          categoryId: '01',
+          attr: '模拟真实情景',
+          price: 199,
+          min_price: 100,
+          picUrl: require('../assets/teas.png')
+        },
+        {
+          id: '1001',
+          title: '积木',
+          series: '婴儿系列',
+          seriesId: '01',
+          category: '积木',
+          categoryId: '01',
+          attr: '模拟真实情景',
+          price: 199,
+          min_price: 100,
+          picUrl: require('../assets/teas.png')
+        }
+      ]
+    }
   },
   methods: {
+    toGoodsList (category) {
+      this.$router.push({ name: 'goodsList', params: { category } })
+    }
   }
 }
 </script>
 <style scoped>
 .index {
 }
-.el-header {
-  padding: 0;
-  height: 600px !important;
-  background-color: rgb(253, 253, 253);
-}
 .main {
   width: 100%;
-  background-color: rgb(253, 253, 253);
+  background-color: var(--background-color);
 }
 .box {
   height: 500px;
@@ -56,5 +87,20 @@ export default {
   bottom: 0;
   overflow: hidden;
   text-align: center;
+}
+.goodsbox {
+  width: 1100px;
+  margin: 20px auto;
+}
+.header {
+  line-height: 80px;
+  padding: 0 10px;
+}
+.header span {
+  float: left;
+  font-size: 20px;
+}
+.right span {
+  padding-left: 10px;
 }
 </style>

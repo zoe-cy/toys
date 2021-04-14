@@ -57,7 +57,8 @@ export default {
     toCars () {
       this.$router.push({ name: 'cars' })
     }
-  }
+  },
+  props: ['tip']
 }
 </script>
 <style scoped>
@@ -66,7 +67,7 @@ export default {
   width: 100%;
   height: 100px;
   line-height: 100px;
-  background-color: rgb(253, 253, 253);
+  background-color: var(--background-color);
 }
 .box {
   width: 1100px;
@@ -74,7 +75,7 @@ export default {
 }
 .logo {
   float: left;
-  width: 100px;
+  width: 140px;
   height: 100px;
   overflow: hidden;
   position: relative;
