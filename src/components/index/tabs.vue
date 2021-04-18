@@ -1,14 +1,16 @@
 <template>
-  <div class="tabs" @mouseleave="hover= -1">
+  <div class="tabs" @mouseleave="flag= -1">
       <!-- 左侧 -->
     <ul class="list">
       <li
-        v-for="(item, i) in sorting"
-        :key="i"
-        @mouseover="hover=item.id"
+        v-for="(item, i) in goodsList"
+        :key="item.category_id"
+        :class="[flag == i? 'active': ''] "
+        :data-active= "i"
+        @mouseover="toTurn"
       >
         <div class="box">
-          <span>{{item.title}}</span>
+          <span>{{item.category}}</span>
           <span>></span>
         </div>
       </li>
@@ -16,7 +18,7 @@
     <!-- 右侧 -->
     <div
       class="goodslist"
-      v-if="hover != -1"
+      v-if="flag != -1"
     >
       <ul>
         <li
@@ -34,59 +36,64 @@
 export default {
   data () {
     return {
+      flag: -1,
       hover: -1,
       sorting: [{ id: 1, title: '布偶' }, { id: 2, title: '积木' }],
       goodsList: [
         {
           id: '1001',
-          title: '拼图126片拼图126片拼图126片拼图126片拼图126片拼图126片',
+          title: '7788',
           series: '婴儿系列',
-          seriesId: '01',
+          series_id: '01',
           category: '拼图',
-          categoryId: '01',
+          category_id: '1',
           attr: '模拟真实情景',
-          price: 199,
-          min_price: 100,
-          picUrl: require('../../assets/teas.png')
+          price: 110,
+          sold_num: 88,
+          min_price: 77,
+          pic_url: require('../../assets/teas.png')
+        },
+        {
+          id: '1001',
+          title: '9910',
+          series: '婴儿系列',
+          series_id: '01',
+          category: '拼图',
+          category_id: '2',
+          attr: '模拟真实情景',
+          price: 110,
+          sold_num: 1010,
+          min_price: 99,
+          pic_url: require('../../assets/teas.png')
+        },
+        {
+          id: '1001',
+          title: '1112',
+          series: '婴儿系列',
+          series_id: '01',
+          category: '拼图',
+          category_id: '3',
+          attr: '模拟真实情景',
+          price: 110,
+          sold_num: 1212,
+          min_price: 1111,
+          pic_url: require('../../assets/teas.png')
         }
       ]
     }
   },
   methods: {
+    toTurn (e) {
+      console.log('1', e.currentTarget.dataset.active)
+      this.flag = e.currentTarget.dataset.active
+    },
     toGoodsDetail (id) {
       this.$router.push({ name: 'goodsDetail', params: { id } })
     }
-    // tab () {
-    //   console.log('f', this.flag)
-    //   this.$nextTick(function () {
-    //     let rel = []
-    //     console.log('test', this.$refs.tabs && this.$refs.tabs.length > 0)
-    //     if (this.$refs.tabs && this.$refs.tabs.length > 0) {
-    //       rel = this.$refs.tabs.filter(function (item) {
-    //         console.log('num', this.flag)
-    //         return parseInt(item.dataset.index) === parseInt(this.hover)
-    //       })
-    //     }
-    //     if (rel.length > 0) {
-    //       this.flag = true
-    //     }
-    //     console.log('flag', this.flag)
-    //   })
-    // }
   },
   mounted: {
   },
   computed: {
-    // flag () {
-    //   let rel = []
-    //   if (this.$refs.tabs) {
-    //     rel = this.$refs.tabs.filter(function (item) {
-    //       return parseInt(item.dataset.index) === parseInt(this.hover)
-    //     })
-    //   }
-    //   console.log('tabs', this.$refs.tabs)
-    //   return rel.length > 0
-    // }
   }
 }
 </script>
@@ -126,6 +133,10 @@ export default {
 .list li:hover {
     color: rgb(48, 47, 47);
     background-color: rgb(253, 253, 253,.9);
+}
+.active {
+  color: rgb(48, 47, 47)!important;
+  background-color: rgb(253, 253, 253,.9);
 }
 .goodslist {
     position: absolute;

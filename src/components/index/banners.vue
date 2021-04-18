@@ -8,7 +8,7 @@
         class="swiper-slide"
         v-for="item in bannerList"
         :key="item.id"
-        :style="{ backgroundImage: 'url('+item.picUrl+')'}"
+        :style="{ backgroundImage: 'url('+item.pic_url+')'}"
         @click="toGoodsDetail(item.id)"
       >
        <!-- <img :src="item.picUrl" alt="this is a produnction picture" /> -->
@@ -27,7 +27,7 @@ export default {
   // props: ['bannerList'],
   data () {
     return {
-      bannerList: [{ id: 1, title: 'goods1', picUrl: require('../../assets/news.png') }, { id: 2, title: 'goods2', picUrl: require('../../assets/teas.png') }],
+      bannerList: [{ id: 1, title: 'goods1', pic_url: require('../../assets/news.png') }, { id: 2, title: 'goods2', pic_url: require('../../assets/teas.png') }],
       swiperOptions: {
         pagination: {
           el: '.swiper-pagination',

@@ -22,7 +22,7 @@ const router = new VueRouter({
       props: true
     },
     {
-      path: '/goodsList/:category',
+      path: '/goodsList/:category_id',
       component: goodsList,
       name: 'goodsList',
       props: true
@@ -40,7 +40,7 @@ const router = new VueRouter({
       props: true
     },
     {
-      path: '/serves/:serveId',
+      path: '/serves/:serve_id',
       component: serves,
       name: 'serves',
       props: true

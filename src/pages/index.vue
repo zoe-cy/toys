@@ -3,14 +3,14 @@
     <div class="main">
       <div class="box clearfix">
       <!-- banner z-index2 tabs z-index99-->
-      <banners></banners>
-      <t-tabs></t-tabs>
+        <banners></banners>
+        <t-tabs></t-tabs>
+      </div>
     </div>
-    </div>
-    <div class="goodsbox" v-for="item in goodsList" :key="item.category">
+    <div class="goodsbox" v-for="item in goodsList" :key="item.category_id">
       <div class="header">
         <span>{{item.category}}</span>
-        <div class="right" @click="toGoodsList(item.category)">
+        <div class="right" @click="toGoodsList(item.category_id)">
           <span>查看全部</span>
           <span>></span>
         </div>
@@ -39,32 +39,34 @@ export default {
           id: '1001',
           title: '拼图126片拼图126片拼图126片拼图126片拼图126片拼图126片',
           series: '婴儿系列',
-          seriesId: '01',
+          series_id: '01',
           category: '拼图',
-          categoryId: '01',
+          category_id: '01',
           attr: '模拟真实情景',
           price: 199,
+          sold_num: 34,
           min_price: 100,
-          picUrl: require('../assets/teas.png')
+          pic_url: require('../assets/teas.png')
         },
         {
           id: '1001',
           title: '积木',
           series: '婴儿系列',
-          seriesId: '01',
-          category: '积木',
-          categoryId: '01',
+          series_id: '01',
+          category: '拼图',
+          category_id: '01',
           attr: '模拟真实情景',
           price: 199,
+          sold_num: 34,
           min_price: 100,
-          picUrl: require('../assets/teas.png')
+          pic_url: require('../assets/teas.png')
         }
       ]
     }
   },
   methods: {
-    toGoodsList (category) {
-      this.$router.push({ name: 'goodsList', params: { category } })
+    toGoodsList (id) {
+      this.$router.push({ name: 'goodsList', params: { category_id: id } })
     }
   }
 }
@@ -75,6 +77,7 @@ export default {
 .main {
   width: 100%;
   background-color: var(--background-color);
+  margin-bottom: 15px;
 }
 .box {
   height: 500px;
@@ -90,7 +93,7 @@ export default {
 }
 .goodsbox {
   width: 1100px;
-  margin: 20px auto;
+  margin: 0 auto;
 }
 .header {
   line-height: 80px;

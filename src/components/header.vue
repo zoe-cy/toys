@@ -2,16 +2,16 @@
   <div class="header">
     <div class="box">
       <div class="logo">
-        <img src="../assets/logo.png" />
+        <img src="../assets/logo.png" @click="toIndex"/>
       </div>
       <div class="nav">
         <ul>
           <li
-            v-for="(item, i) in categories"
-            :key="i"
-            @click="toGoodsList(item.category)"
+            v-for="item in series"
+            :key="item.series_id"
+            @click="toGoodsList(item.series_id)"
           >
-            {{ item.kind }}
+            {{ item.series }}
           </li>
         </ul>
       </div>
@@ -38,21 +38,24 @@ export default {
     return {
       num: 0,
       msg: '',
-      categories: [
+      series: [
         {
-          category: 1,
-          kind: '婴儿系列'
+          series_id: 1,
+          series: '婴儿系列'
         },
         {
-          category: 2,
-          kind: '益智系列'
+          series_id: 2,
+          series: '益智系列'
         }
       ]
     }
   },
   methods: {
-    toGoodsList (category) {
-      this.$router.push({ name: 'goodsList', params: { category } })
+    toIndex () {
+      this.$router.push({ name: 'index' })
+    },
+    toGoodsList (id) {
+      this.$router.push({ name: 'goodsList', params: { category_id: id } })
     },
     toCars () {
       this.$router.push({ name: 'cars' })
@@ -64,13 +67,13 @@ export default {
 <style scoped>
 .header {
   text-align: center;
-  width: 100%;
-  height: 100px;
   line-height: 100px;
+  min-width: 1100px;
   background-color: var(--background-color);
 }
 .box {
   width: 1100px;
+  height: 100px;
   margin: 0 auto;
 }
 .logo {

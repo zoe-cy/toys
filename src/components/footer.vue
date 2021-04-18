@@ -1,14 +1,16 @@
 <template>
   <div class=footer>
-    <ul class="top">
+    <div class="box">
+      <ul class="top">
       <li
-        v-for="(item, i) in serves"
-        :key="i"
+        v-for="item in serves"
+        :key="item.serve_id"
       >
-        <span @click="toServes(item.serveId)">{{item.serve}}</span>
+        <span @click="toServes(item.serve_id)">{{item.serve}}</span>
         <span class="line"></span>
       </li>
     </ul>
+    </div>
     <div class="content">
       <p>@2021 浙江七彩公司版权 所有</p>
       <p>浙ICP备100328662</p>
@@ -21,30 +23,34 @@ export default {
   data () {
     return {
       serves: [
-        { serve: '全场满69包邮', serveId: 1 },
-        { serve: '7天无理由退货', serveId: 1 },
-        { serve: '15天免费换货', serveId: 1 }
+        { serve: '全场满69包邮', serve_id: 1 },
+        { serve: '7天无理由退货', serve_id: 1 },
+        { serve: '15天免费换货', serve_id: 1 }
       ]
     }
   },
   methods: {
-    toServes (serveId) {
-      this.$router.push({ name: 'serves', params: { serveId } })
+    toServes (id) {
+      this.$router.push({ name: 'serves', params: { serve_id: id } })
     }
   }
 }
 </script>
 <style scoped>
 .footer {
+  min-width: 1100px;
   text-align: center;
   line-height: 200px;
 }
-.top {
+.box {
   background-color: var(--background-color);
+}
+.top {
   height: 70px;
   overflow: hidden;
   display: flex;
-  margin-bottom: 20px;
+  margin: 0 auto 20px;
+  width: 1100px;
   /* border-bottom: 1px solid rgb(130, 130, 130,.4); */
 }
 .top li {

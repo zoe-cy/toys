@@ -1,8 +1,8 @@
 <template>
   <div class="goodsbox">
       <ul class="imgs" :style="tHeight">
-        <li v-for="(item, i) in goodsList" :key="i" @click="toGoodsDetail(item.id)">
-          <img :src="item.picUrl" />
+        <li v-for="item in goodsList" :key="item.id" @click="toGoodsDetail(item.id)">
+          <img :src="item.pic_url" />
           <p>{{item.title}}</p>
           <!-- <p>{{item.min_price}}元起</p> -->
         </li>
@@ -17,123 +17,81 @@ export default {
       goodsList: [
         {
           id: '1001',
-          title: '拼图126片拼图126片拼图126片拼图126片拼图126片拼图126片',
+          title: '1122',
           series: '婴儿系列',
-          seriesId: '01',
+          series_id: '01',
           category: '拼图',
-          categoryId: '01',
+          category_id: '01',
           attr: '模拟真实情景',
-          price: 199,
-          min_price: 100,
-          picUrl: require('../assets/teas.png')
+          price: 110,
+          sold_num: 22,
+          min_price: 11,
+          pic_url: require('../assets/teas.png')
         },
         {
           id: '1001',
-          title: '拼图126片拼图126片拼图126片拼图126片拼图126片拼图126片',
+          title: '3344',
           series: '婴儿系列',
-          seriesId: '01',
+          series_id: '01',
           category: '拼图',
-          categoryId: '01',
+          category_id: '01',
           attr: '模拟真实情景',
-          price: 199,
-          min_price: 100,
-          picUrl: require('../assets/teas.png')
+          price: 110,
+          sold_num: 44,
+          min_price: 33,
+          pic_url: require('../assets/teas.png')
         },
         {
           id: '1001',
-          title: '拼图126片拼图126片拼图126片拼图126片拼图126片拼图126片',
+          title: '5566',
           series: '婴儿系列',
-          seriesId: '01',
+          series_id: '01',
           category: '拼图',
-          categoryId: '01',
+          category_id: '01',
           attr: '模拟真实情景',
-          price: 199,
-          min_price: 100,
-          picUrl: require('../assets/teas.png')
+          price: 110,
+          sold_num: 66,
+          min_price: 55,
+          pic_url: require('../assets/teas.png')
         },
         {
           id: '1001',
-          title: '拼图126片拼图126片拼图126片拼图126片拼图126片拼图126片',
+          title: '7788',
           series: '婴儿系列',
-          seriesId: '01',
+          series_id: '01',
           category: '拼图',
-          categoryId: '01',
+          category_id: '01',
           attr: '模拟真实情景',
-          price: 199,
-          min_price: 100,
-          picUrl: require('../assets/teas.png')
+          price: 110,
+          sold_num: 88,
+          min_price: 77,
+          pic_url: require('../assets/teas.png')
         },
         {
           id: '1001',
-          title: '拼图126片拼图126片拼图126片拼图126片拼图126片拼图126片',
+          title: '9910',
           series: '婴儿系列',
-          seriesId: '01',
+          series_id: '01',
           category: '拼图',
-          categoryId: '01',
+          category_id: '01',
           attr: '模拟真实情景',
-          price: 199,
-          min_price: 100,
-          picUrl: require('../assets/teas.png')
+          price: 110,
+          sold_num: 1010,
+          min_price: 99,
+          pic_url: require('../assets/teas.png')
         },
         {
           id: '1001',
-          title: '拼图126片拼图126片拼图126片拼图126片拼图126片拼图126片',
+          title: '1112',
           series: '婴儿系列',
-          seriesId: '01',
+          series_id: '01',
           category: '拼图',
-          categoryId: '01',
+          category_id: '01',
           attr: '模拟真实情景',
-          price: 199,
-          min_price: 100,
-          picUrl: require('../assets/teas.png')
-        },
-        {
-          id: '1001',
-          title: '拼图126片拼图126片拼图126片拼图126片拼图126片拼图126片',
-          series: '婴儿系列',
-          seriesId: '01',
-          category: '拼图',
-          categoryId: '01',
-          attr: '模拟真实情景',
-          price: 199,
-          min_price: 100,
-          picUrl: require('../assets/teas.png')
-        },
-        {
-          id: '1001',
-          title: '拼图126片拼图126片拼图126片拼图126片拼图126片拼图126片',
-          series: '婴儿系列',
-          seriesId: '01',
-          category: '拼图',
-          categoryId: '01',
-          attr: '模拟真实情景',
-          price: 199,
-          min_price: 100,
-          picUrl: require('../assets/teas.png')
-        },
-        {
-          id: '1001',
-          title: '拼图126片拼图126片拼图126片拼图126片拼图126片拼图126片',
-          series: '婴儿系列',
-          seriesId: '01',
-          category: '拼图',
-          categoryId: '01',
-          attr: '模拟真实情景',
-          price: 199,
-          min_price: 100,
-          picUrl: require('../assets/teas.png')
-        },
-        {
-          id: '1001',
-          title: '拼图126片拼图126片拼图126片拼图126片拼图126片拼图126片',
-          series: '婴儿系列',
-          seriesId: '01',
-          category: '拼图',
-          categoryId: '01',
-          attr: '模拟真实情景',
-          price: 199,
-          min_price: 100,
-          picUrl: require('../assets/teas.png')
+          price: 110,
+          sold_num: 1212,
+          min_price: 1111,
+          pic_url: require('../assets/teas.png')
         }
       ]
     }
@@ -152,7 +110,7 @@ export default {
   display: flex;
   flex-wrap: wrap;
   overflow: hidden;
-  margin: 0 auto;
+  margin: 0 auto 20px;
 }
 .imgs li {
   width: 360px;
