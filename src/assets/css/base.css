@@ -1,4 +1,4 @@
-body,div,span,ul,li,a,i,p,button,input,::before,::after {
+body,div,span,ul,li,a,i,p,button,input {
    margin: 0;
    padding: 0;
    border: none;
@@ -10,9 +10,13 @@ body {
     background-color: rgb(247, 246, 246);
     --background-color: rgb(253, 253, 253);
     --hover-color: rgb(241, 180, 24);
-    color: rgb(48, 47, 47);
-    --color: rgb(48, 47, 47);
+    color: rgb(95, 95, 95);
+    --color: rgb(95, 95, 95);
+    font-weight: normal;
     width: 100%!important;
+}
+span {
+    font-size: 16px;
 }
 a {
     text-decoration: none;
@@ -20,6 +24,14 @@ a {
 ul {
     list-style: none;
 }
+img{ 
+    border:none; 
+    vertical-align:middle; 
+    max-width: 100%;
+}  
+i,em { 
+    font-style:normal;
+}    
 input {
     resize: none;
     appearance: none;
@@ -41,6 +53,9 @@ input[type=search]::-webkit-search-cancel-button {
 .clearfix{
     zoom:1;
 }
+.left {
+    float: left;
+}
 .right {
     float: right;
   }
@@ -52,4 +67,7 @@ input[type=search]::-webkit-search-cancel-button {
 }
 .text-de {
     text-decoration: line-through;
+}
+.line {
+    border-top: 1px solid rgb(214, 212, 212)
 }

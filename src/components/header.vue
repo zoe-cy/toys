@@ -6,13 +6,9 @@
       </div>
       <div class="nav">
         <ul>
-          <li
-            v-for="item in series"
-            :key="item.series_id"
-            @click="toGoodsList(item.series_id)"
-          >
-            {{ item.series }}
-          </li>
+          <li @click="toIndex">Home</li>
+          <li @click="toGoodsList">全部商品</li>
+          <li @click="toIntro">关于我们</li>
         </ul>
       </div>
       <div class="search">
@@ -23,7 +19,7 @@
           autocomplete="true"
           v-model="msg"
         />
-        <i class="btn iconfont icon-sousuo" @click="toGoodsList(msg)"></i>
+        <i class="btn iconfont icon-sousuo" @click="toGoodsSearch(msg)"></i>
       </div>
       <div class="cars" @click="toCars">
         <i class="btn2 iconfont icon-icone6002_"></i>
@@ -36,26 +32,23 @@
 export default {
   data () {
     return {
+      flag: -1,
       num: 0,
-      msg: '',
-      series: [
-        {
-          series_id: 1,
-          series: '婴儿系列'
-        },
-        {
-          series_id: 2,
-          series: '益智系列'
-        }
-      ]
+      msg: ''
     }
   },
   methods: {
     toIndex () {
       this.$router.push({ name: 'index' })
     },
-    toGoodsList (id) {
-      this.$router.push({ name: 'goodsList', params: { category_id: id } })
+    toGoodsList () {
+      this.$router.push({ name: 'goodsList' })
+    },
+    toIntro () {
+      this.$router.push({ name: 'intro' })
+    },
+    toGoodsSearch (msg) {
+      this.$router.push({ name: 'goodsSearch', params: { msg } })
     },
     toCars () {
       this.$router.push({ name: 'cars' })
@@ -106,7 +99,7 @@ export default {
   font-size: 18px;
 }
 .nav ul li:hover {
-  color: rgb(241, 180, 24);
+  color: var(--hover-color);
 }
 .search {
   float: left;
@@ -119,11 +112,11 @@ export default {
   height: 40px;
   width: 160px;
   border: 1px solid rgb(190, 190, 190);
+  border-right: none;
   padding-left: 10px;
 }
 .search .btn {
   border: 1px solid rgb(190, 190, 190);
-  border-left: none;
   height: 40px;
   width: 39px;
   position: relative;
@@ -135,15 +128,18 @@ export default {
   font-size: 20px;
 }
 .search .btn:hover {
-  border-color: rgb(241, 180, 24);
-  background-color: rgb(241, 180, 24);
-  color: rgb(253, 253, 253);
+  border-color: var(--hover-color);
+  background-color: var(--hover-color);
+  color: var(--background-color);
 }
 .cars {
   float: left;
   width: 160px;
   height: 100px;
   text-align: right;
+}
+.cars:hover {
+  color: var(--hover-color);
 }
 .cars i {
   font-size: 28px;

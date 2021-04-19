@@ -82,8 +82,8 @@ export default {
     height: 500px;
     background-size: 100% 100%;
 }
-.swiper-button-prev {
+/* .swiper-button-prev {
   position: absolute;
   left: 210px;
-}
+} */
 </style>

@@ -6,6 +6,7 @@ import goodsList from '../pages/goodsList'
 import goodsDetail from '../pages/goodsDetail'
 import cars from '../pages/cars'
 import serves from '../pages/serves'
+import intro from '../pages/intro'
 Vue.use(VueRouter)
 const router = new VueRouter({
   routes: [
@@ -16,7 +17,7 @@ const router = new VueRouter({
       alias: '/index'
     },
     {
-      path: '/goodsSearch',
+      path: '/goodsSearch/:msg',
       component: goodsSearch,
       name: 'goodsSearch',
       props: true
@@ -43,6 +44,12 @@ const router = new VueRouter({
       path: '/serves/:serve_id',
       component: serves,
       name: 'serves',
+      props: true
+    },
+    {
+      path: '/intro',
+      component: intro,
+      name: 'intro',
       props: true
     }
   ]

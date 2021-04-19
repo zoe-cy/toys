@@ -1,7 +1,7 @@
 <template>
   <div class="goods-list">
     <div class="header">
-      <span @click.self="toIndex">首页</span>
+      <span>全部结果</span>
       <span>></span>
       <span>{{goodsList[0].category}}</span>
       <span :class="['right',flag ==3?'active':'']" data-active="3" @click="toTurn">
@@ -123,9 +123,6 @@ export default {
     }
   },
   methods: {
-    toIndex () {
-      this.$router.push({ name: 'index' })
-    },
     toTurn (e) {
       this.flag = e.target.dataset.active
     }
@@ -148,11 +145,8 @@ export default {
 .iconfont {
   font-size: 20px;
 }
-.header>span:hover {
+.right:hover {
   color: var(--hover-color);
-}
-.header>span:nth-child(2):hover,span:nth-child(3):hover {
-  color: var(--color);
 }
 .right::before {
   content: '';

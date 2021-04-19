@@ -3,8 +3,13 @@
       <ul class="imgs" :style="tHeight">
         <li v-for="item in goodsList" :key="item.id" @click="toGoodsDetail(item.id)">
           <img :src="item.pic_url" />
-          <p>{{item.title}}</p>
-          <!-- <p>{{item.min_price}}元起</p> -->
+          <p class="title">
+            {{item.title}}
+          </p>
+          <p>
+            <span class="active">{{item.min_price}}元</span>
+            <span class="subs text-de" v-if="item.price">{{item.price}}元</span>
+          </p>
         </li>
       </ul>
   </div>
@@ -23,9 +28,7 @@ export default {
           category: '拼图',
           category_id: '01',
           attr: '模拟真实情景',
-          price: 110,
           sold_num: 22,
-          min_price: 11,
           pic_url: require('../assets/teas.png')
         },
         {
@@ -92,6 +95,32 @@ export default {
           sold_num: 1212,
           min_price: 1111,
           pic_url: require('../assets/teas.png')
+        },
+        {
+          id: '1001',
+          title: '9910',
+          series: '婴儿系列',
+          series_id: '01',
+          category: '拼图',
+          category_id: '01',
+          attr: '模拟真实情景',
+          price: 110,
+          sold_num: 1010,
+          min_price: 99,
+          pic_url: require('../assets/teas.png')
+        },
+        {
+          id: '1001',
+          title: '1112',
+          series: '婴儿系列',
+          series_id: '01',
+          category: '拼图',
+          category_id: '01',
+          attr: '模拟真实情景',
+          price: 110,
+          sold_num: 1212,
+          min_price: 1111,
+          pic_url: require('../assets/teas.png')
         }
       ]
     }
@@ -104,9 +133,11 @@ export default {
 }
 </script>
 <style scoped>
+.goodsbox {
+  overflow: hidden;
+  min-width: 1100px;
+}
 .imgs {
-  width: 1100px;
-  /* height: 500px; */
   display: flex;
   flex-wrap: wrap;
   overflow: hidden;
@@ -114,7 +145,7 @@ export default {
 }
 .imgs li {
   width: 360px;
-  height: 245px;
+  height: 260px;
   background-color: var(--background-color);
   overflow: hidden;
   margin-right: 10px;
@@ -137,12 +168,16 @@ li img {
   width: 100%;
   height: 170px;
 }
-li p {
-    line-height: 60px;
+li p{
+    line-height: 38px;
     text-align: center;
     padding: 0 10px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+}
+p:last-child span{
+  font-size: 14px;
+  padding: 0 2px;
 }
 </style>

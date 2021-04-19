@@ -70,6 +70,9 @@ export default {
 .top li:last-child span {
     border: none;
 }
+li:hover {
+  color: var(--hover-color);
+}
 .content {
   height: 40px;
   overflow: hidden;
