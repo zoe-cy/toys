@@ -1,14 +1,15 @@
 <template>
   <div class="goodsbox">
       <ul class="imgs" :style="tHeight">
-        <li v-for="item in goodsList" :key="item.id" @click="toGoodsDetail(item.id)">
+        <li v-for="item in tGoodsList" :key="item.id" @click="toGoodsDetail(item.id)">
           <img :src="item.pic_url" />
           <p class="title">
             {{item.title}}
           </p>
           <p>
-            <span class="active">{{item.min_price}}元</span>
-            <span class="subs text-de" v-if="item.price">{{item.price}}元</span>
+            <span class="active">{{item.price}}元</span>
+            <span class="subs text-de" v-if="item.price">{{item.old_price}}元</span>
+             <span class="subs">月销{{item.sold_num}}件</span>
           </p>
         </li>
       </ul>
@@ -16,113 +17,9 @@
 </template>
 <script>
 export default {
-  props: ['tHeight'],
+  props: ['tHeight', 'tGoodsList'],
   data () {
     return {
-      goodsList: [
-        {
-          id: '1001',
-          title: '1122',
-          series: '婴儿系列',
-          series_id: '01',
-          category: '拼图',
-          category_id: '01',
-          attr: '模拟真实情景',
-          sold_num: 22,
-          pic_url: require('../assets/teas.png')
-        },
-        {
-          id: '1001',
-          title: '3344',
-          series: '婴儿系列',
-          series_id: '01',
-          category: '拼图',
-          category_id: '01',
-          attr: '模拟真实情景',
-          price: 110,
-          sold_num: 44,
-          min_price: 33,
-          pic_url: require('../assets/teas.png')
-        },
-        {
-          id: '1001',
-          title: '5566',
-          series: '婴儿系列',
-          series_id: '01',
-          category: '拼图',
-          category_id: '01',
-          attr: '模拟真实情景',
-          price: 110,
-          sold_num: 66,
-          min_price: 55,
-          pic_url: require('../assets/teas.png')
-        },
-        {
-          id: '1001',
-          title: '7788',
-          series: '婴儿系列',
-          series_id: '01',
-          category: '拼图',
-          category_id: '01',
-          attr: '模拟真实情景',
-          price: 110,
-          sold_num: 88,
-          min_price: 77,
-          pic_url: require('../assets/teas.png')
-        },
-        {
-          id: '1001',
-          title: '9910',
-          series: '婴儿系列',
-          series_id: '01',
-          category: '拼图',
-          category_id: '01',
-          attr: '模拟真实情景',
-          price: 110,
-          sold_num: 1010,
-          min_price: 99,
-          pic_url: require('../assets/teas.png')
-        },
-        {
-          id: '1001',
-          title: '1112',
-          series: '婴儿系列',
-          series_id: '01',
-          category: '拼图',
-          category_id: '01',
-          attr: '模拟真实情景',
-          price: 110,
-          sold_num: 1212,
-          min_price: 1111,
-          pic_url: require('../assets/teas.png')
-        },
-        {
-          id: '1001',
-          title: '9910',
-          series: '婴儿系列',
-          series_id: '01',
-          category: '拼图',
-          category_id: '01',
-          attr: '模拟真实情景',
-          price: 110,
-          sold_num: 1010,
-          min_price: 99,
-          pic_url: require('../assets/teas.png')
-        },
-        {
-          id: '1001',
-          title: '1112',
-          series: '婴儿系列',
-          series_id: '01',
-          category: '拼图',
-          category_id: '01',
-          attr: '模拟真实情景',
-          price: 110,
-          sold_num: 1212,
-          min_price: 1111,
-          pic_url: require('../assets/teas.png')
-        }
-      ]
     }
   },
   methods: {
@@ -169,12 +66,15 @@ li img {
   height: 170px;
 }
 li p{
-    line-height: 38px;
+    line-height: 50px;
     text-align: center;
     padding: 0 10px;
     overflow: hidden;
     text-overflow: ellipsis;
     white-space: nowrap;
+}
+p:last-child {
+  line-height: 20px;
 }
 p:last-child span{
   font-size: 14px;

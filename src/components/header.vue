@@ -7,7 +7,7 @@
       <div class="nav">
         <ul>
           <li @click="toIndex">Home</li>
-          <li @click="toGoodsList">全部商品</li>
+          <li @click="toGoodsList('全部商品')">全部商品</li>
           <li @click="toIntro">关于我们</li>
         </ul>
       </div>
@@ -41,8 +41,8 @@ export default {
     toIndex () {
       this.$router.push({ name: 'index' })
     },
-    toGoodsList () {
-      this.$router.push({ name: 'goodsList' })
+    toGoodsList (id) {
+      this.$router.push({ name: 'goodsList', params: { category: id } })
     },
     toIntro () {
       this.$router.push({ name: 'intro' })

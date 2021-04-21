@@ -23,7 +23,7 @@ const router = new VueRouter({
       props: true
     },
     {
-      path: '/goodsList/:category_id',
+      path: '/goodsList/:category',
       component: goodsList,
       name: 'goodsList',
       props: true

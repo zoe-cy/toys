@@ -9,12 +9,12 @@
     <div class="goodsbox" v-for="item in goodsTable" :key="item.category_id">
       <div class="header">
         <span>{{ item.category }}</span>
-        <div class="right" @click="toGoodsList(item.category_id)">
+        <div class="right" @click="toGoodsList(item.category)">
           <span>查看全部</span>
           <span>></span>
         </div>
       </div>
-      <t-goodsbox :tHeight="tHeight" :tGoodsList="item"></t-goodsbox>
+      <t-goodsbox :tHeight="tHeight" :tGoodsList="item.goods_list"></t-goodsbox>
     </div>
   </div>
 </template>
@@ -80,13 +80,13 @@ export default {
             },
             {
               id: '1003',
-              title: '婴幼儿拼图',
-              attr: ['宝宝启蒙', '儿童益智'],
-              price: 9,
-              old_price: 32,
-              sold_num: 158,
-              goods_num: 496,
-              type: '卡扣拼图',
+              title: '蒙氏钥匙锁',
+              attr: ['亲子课教具', '幼儿启蒙'],
+              price: 29,
+              old_price: 38,
+              sold_num: 168,
+              goods_num: 396,
+              type: '蒙特梭利教具',
               age: '24m+',
               texture: '木制',
               gender: '中性',
@@ -146,6 +146,132 @@ export default {
                 require('../assets/goods/200121.png')
               ],
               pic_url: require('../assets/goods/200111.png')
+            },
+            {
+              id: '2002',
+              title: '儿童手抓板拼图',
+              attr: ['形状认知', '智力开发'],
+              price: 23,
+              old_price: 30,
+              sold_num: 108,
+              goods_num: 271,
+              type: '木制玩具',
+              age: '18m+',
+              texture: '木制',
+              gender: '中性',
+              pics: [
+                require('../assets/goods/200211.png'),
+                require('../assets/goods/200212.png')
+              ],
+              detail_pics: [
+                require('../assets/goods/200221.png')
+              ],
+              pic_url: require('../assets/goods/200211.png')
+            },
+            {
+              id: '2003',
+              title: '婴幼儿拼图',
+              attr: ['宝宝启蒙', '儿童益智'],
+              price: 9,
+              old_price: 12,
+              sold_num: 128,
+              goods_num: 196,
+              type: '卡扣拼图',
+              age: '24m+',
+              texture: '木制',
+              gender: '中性',
+              pics: [
+                require('../assets/goods/200311.png'),
+                require('../assets/goods/200312.png')
+              ],
+              detail_pics: [
+                require('../assets/goods/200321.png')
+              ],
+              pic_url: require('../assets/goods/200311.png')
+            },
+            {
+              id: '2004',
+              title: '几何形状配对套柱积木',
+              attr: ['开发益智力', '宝宝早教玩具'],
+              price: 19,
+              old_price: 23,
+              sold_num: 58,
+              goods_num: 96,
+              type: '套柱积木',
+              age: '12m+',
+              texture: '木制',
+              gender: '中性',
+              pics: [
+                require('../assets/goods/200411.png'),
+                require('../assets/goods/200412.png')
+              ],
+              detail_pics: [
+                require('../assets/goods/200421.png')
+              ],
+              pic_url: require('../assets/goods/200411.png')
+            },
+            {
+              id: '2005',
+              title: '圆柱体插座家庭装',
+              attr: ['早教玩具', '蒙氏教具'],
+              price: 35,
+              old_price: 45,
+              sold_num: 148,
+              goods_num: 339,
+              type: '圆柱体插座',
+              age: '24m+',
+              texture: '木制',
+              gender: '中性',
+              pics: [
+                require('../assets/goods/200511.png'),
+                require('../assets/goods/200512.png')
+              ],
+              detail_pics: [
+                require('../assets/goods/200521.png')
+              ],
+              pic_url: require('../assets/goods/200511.png')
+            },
+            {
+              id: '2006',
+              title: '立体空间拼图',
+              attr: ['逻辑思维', '游戏脑力'],
+              price: 39,
+              old_price: 69,
+              sold_num: 274,
+              goods_num: 636,
+              type: '立体拼图',
+              age: '36m+',
+              texture: '木制',
+              gender: '中性',
+              pics: [
+                require('../assets/goods/200611.png'),
+                require('../assets/goods/200612.png')
+              ],
+              detail_pics: [
+                require('../assets/goods/200621.png')
+              ],
+              pic_url: require('../assets/goods/200611.png')
+            },
+            {
+              id: '2007',
+              title: '几何小拼板分数配对积木',
+              attr: ['教学形状板', '益智玩具'],
+              price: 25,
+              old_price: 27,
+              sold_num: 126,
+              goods_num: 226,
+              type: '木制玩具',
+              age: '24m+',
+              texture: '木制',
+              gender: '中性',
+              pics: [
+                require('../assets/goods/200711.png'),
+                require('../assets/goods/200712.png')
+              ],
+              detail_pics: [
+                require('../assets/goods/200721.png')
+              ],
+              pic_url: require('../assets/goods/200711.png')
             }
           ]
         }
@@ -154,7 +280,7 @@ export default {
   },
   methods: {
     toGoodsList (id) {
-      this.$router.push({ name: 'goodsList', params: { category_id: id } })
+      this.$router.push({ name: 'goodsList', params: { category: id } })
     }
   }
 }

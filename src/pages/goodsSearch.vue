@@ -178,7 +178,7 @@ export default {
   content: '';
   height: 50px;
   border-left: 1px solid rgb(130,130,130);
-  margin-right: 17px;
+  margin-right: 27px;
 }
 .right:last-child::before {
   border: none;
