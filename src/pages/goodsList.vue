@@ -3,13 +3,13 @@
     <div class="header">
       <span>{{category}}</span>
       <span>></span>
-      <span :class="['right',flag ==3?'active':'']" data-active="3" @click="toTurn();toPrice()">
+      <span :class="['right',flag ==3?'active':'']" data-active="3" @click="toTurn($event);toPrice()">
         价格<i class="iconfont icon-up"></i>
       </span>
-      <span :class="['right',flag ==2?'active':'']" data-active="2" @click="toTurn();toSales()">
+      <span :class="['right',flag ==2?'active':'']" data-active="2" @click="toTurn($event);toSales()">
         销量
       </span>
-      <span :class="['right',flag ==1?'active':'']" data-active="1" @click="toTurn">
+      <span :class="['right',flag ==1?'active':'']" data-active="1" @click="toTurn($event);toSort()">
         综合
       </span>
     </div>
@@ -289,35 +289,47 @@ export default {
   },
   methods: {
     toTurn (e) {
-      this.flag = e.currentTarget.dataset.active
+      this.flag = e.target.dataset.active
     },
     // 商品排序
+    toGet () {
+      if (this.category === '全部商品') {
+        let arr = []
+        arr = this.goodsTable.map(item => {
+          return item.goods_list
+        })
+        this.goodsList = arr.reduce((a, b) => {
+          return a.concat(b)
+        })
+      } else {
+        this.goodsList = this.goodsTable.find(item => {
+          return item.category === this.category
+        }).goods_list
+      }
+      console.log(1, this.goodsList)
+    },
+    toSort () {
+      this.goodsList.sort((a, b) => {
+        return a.id - b.id
+      })
+    },
     toSales () {
       this.goodsList.sort((a, b) => {
         return b.sold_num - a.sold_num
       })
-      console.log(1)
     },
     toPrice () {
       this.goodsList.sort((a, b) => {
         return a.price - b.price
       })
-      console.log(2)
     }
   },
   created () {
-    if (this.category === '全部商品') {
-      let arr = []
-      arr = this.goodsTable.map(item => {
-        return item.goods_list
-      })
-      this.goodsList = arr.reduce((a, b) => {
-        return a.concat(b)
-      })
-    } else {
-      this.goodsList = this.goodsTable.find(item => {
-        return item.category === this.category
-      }).goods_list
+    this.toGet()
+  },
+  watch: {
+    category: function (val) {
+      this.toGet()
     }
   }
 }

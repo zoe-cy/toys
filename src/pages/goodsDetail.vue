@@ -60,7 +60,7 @@
             data-active="2"
             @click="toTurn"
           >
-            <span>售后政策</span>
+            <span>注意事项</span>
             <span class="line"></span>
           </li>
         </ul>
@@ -89,7 +89,9 @@
             <img :src="item" />
           </div>
         </div>
-        <div v-if="flag == '2'">123</div>
+        <div v-if="flag == '2'">
+          <img src="../assets/goods/tips.png" />
+        </div>
       </div>
     </div>
   </div>

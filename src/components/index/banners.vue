@@ -27,19 +27,62 @@ export default {
   // props: ['bannerList'],
   data () {
     return {
-      bannerList: [{ id: 1, title: 'goods1', pic_url: require('../../assets/news.png') }, { id: 2, title: 'goods2', pic_url: require('../../assets/teas.png') }],
+      bannerList: [
+        {
+          id: '1002',
+          title: '撕不烂认知铁盒玩具',
+          attr: ['益智配对', '早教卡片'],
+          price: 8,
+          old_price: 15,
+          sold_num: 58,
+          goods_num: 96,
+          type: '铁盒认知卡',
+          age: '24m+',
+          texture: '木制',
+          gender: '中性',
+          pics: [
+            require('../../assets/goods/100211.png'),
+            require('../../assets/goods/100212.png')
+          ],
+          detail_pics: [
+            require('../../assets/goods/100221.png')
+          ],
+          pic_url: require('../../assets/goods/100211.png')
+        },
+        {
+          id: '1003',
+          title: '蒙氏钥匙锁',
+          attr: ['亲子课教具', '幼儿启蒙'],
+          price: 29,
+          old_price: 38,
+          sold_num: 168,
+          goods_num: 396,
+          type: '蒙特梭利教具',
+          age: '24m+',
+          texture: '木制',
+          gender: '中性',
+          pics: [
+            require('../../assets/goods/100311.png'),
+            require('../../assets/goods/100312.png')
+          ],
+          detail_pics: [
+            require('../../assets/goods/100321.png')
+          ],
+          pic_url: require('../../assets/goods/100311.png')
+        }
+      ],
       swiperOptions: {
         pagination: {
           el: '.swiper-pagination',
           clickable: true
         },
-        // loop: true,
-        // autoplay: {
-        //   delay: 3000,
-        //   disableOnInteraction: false,
-        //   stopOnLastSlide: false
-        // },
-        speed: 1000,
+        loop: true,
+        autoplay: {
+          delay: 3000,
+          disableOnInteraction: false,
+          stopOnLastSlide: false
+        },
+        speed: 3000,
         navigation: {
           nextEl: '.swiper-button-next',
           prevEl: '.swiper-button-prev'

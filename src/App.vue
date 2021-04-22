@@ -14,7 +14,7 @@ export default {
     tFooter
   },
   created () {
-    this.$route.push({ name: 'index' })
+    // this.$router.push({ name: 'index' })
   }
 }
 </script>

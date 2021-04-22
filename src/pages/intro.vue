@@ -1,6 +1,6 @@
 <template>
   <div class="goodsList">
-      intro
+      <img src="../assets/goods/intro.jpeg" />
   </div>
 </template>
 <script>
