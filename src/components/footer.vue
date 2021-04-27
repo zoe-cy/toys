@@ -24,8 +24,8 @@ export default {
     return {
       serves: [
         { serve: '全场满69包邮', serve_id: 1 },
-        { serve: '7天无理由退货', serve_id: 1 },
-        { serve: '15天免费换货', serve_id: 1 }
+        { serve: '7天无理由退货', serve_id: 2 },
+        { serve: '15天免费换货', serve_id: 3 }
       ]
     }
   },

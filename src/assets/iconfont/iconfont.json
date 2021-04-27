@@ -6,11 +6,11 @@
   "description": "",
   "glyphs": [
     {
-      "icon_id": "3051546",
-      "name": "对勾",
-      "font_class": "duigou",
-      "unicode": "e601",
-      "unicode_decimal": 58881
+      "icon_id": "355027",
+      "name": "方对勾",
+      "font_class": "fangduigou",
+      "unicode": "e615",
+      "unicode_decimal": 58901
     },
     {
       "icon_id": "8843814",
@@ -32,13 +32,6 @@
       "font_class": "icone6002_",
       "unicode": "e503",
       "unicode_decimal": 58627
-    },
-    {
-      "icon_id": "20191965",
-      "name": "上下箭头",
-      "font_class": "shangxiajiantou1-copy",
-      "unicode": "e502",
-      "unicode_decimal": 58626
     }
   ]
 }

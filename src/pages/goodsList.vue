@@ -291,7 +291,6 @@ export default {
     toTurn (e) {
       this.flag = e.target.dataset.active
     },
-    // 商品排序
     toGet () {
       if (this.category === '全部商品') {
         let arr = []
@@ -306,8 +305,8 @@ export default {
           return item.category === this.category
         }).goods_list
       }
-      console.log(1, this.goodsList)
     },
+    // 商品排序
     toSort () {
       this.goodsList.sort((a, b) => {
         return a.id - b.id

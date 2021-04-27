@@ -23,7 +23,7 @@
       </div>
       <div class="cars" @click="toCars">
         <i class="btn2 iconfont icon-icone6002_"></i>
-        <span>购物车（{{ num }}）</span>
+        <span>购物车<span class="count">({{$store.getters.getAllCount | getCount}})</span></span>
       </div>
     </div>
   </div>
@@ -54,7 +54,14 @@ export default {
       this.$router.push({ name: 'cars' })
     }
   },
-  props: ['tip']
+  filters: {
+    getCount (val) {
+      if (val > 100) {
+        return '100+'
+      }
+    }
+  }
+  // props: ['tip']
 }
 </script>
 <style scoped>
@@ -144,7 +151,12 @@ export default {
 .cars i {
   font-size: 28px;
 }
-.cars span {
+.cars>span {
   padding-left: 10px;
+}
+.count {
+  text-align: center;
+  display: inline-block;
+  width: 50px;
 }
 </style>
