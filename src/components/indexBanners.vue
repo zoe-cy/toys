@@ -41,13 +41,13 @@ export default {
           texture: '木制',
           gender: '中性',
           pics: [
-            require('../../assets/goods/100211.png'),
-            require('../../assets/goods/100212.png')
+            require('../assets/goods/100211.png'),
+            require('../assets/goods/100212.png')
           ],
           detail_pics: [
-            require('../../assets/goods/100221.png')
+            require('../assets/goods/100221.png')
           ],
-          pic_url: require('../../assets/goods/100211.png')
+          pic_url: require('../assets/goods/100211.png')
         },
         {
           id: '1003',
@@ -62,13 +62,13 @@ export default {
           texture: '木制',
           gender: '中性',
           pics: [
-            require('../../assets/goods/100311.png'),
-            require('../../assets/goods/100312.png')
+            require('../assets/goods/100311.png'),
+            require('../assets/goods/100312.png')
           ],
           detail_pics: [
-            require('../../assets/goods/100321.png')
+            require('../assets/goods/100321.png')
           ],
-          pic_url: require('../../assets/goods/100311.png')
+          pic_url: require('../assets/goods/100311.png')
         }
       ],
       swiperOptions: {

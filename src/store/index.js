@@ -7,8 +7,7 @@ var car = JSON.parse(localStorage.getItem('car') || '[]')
 
 export default new Vuex.Store({
   state: {
-    car: car,
-    selAll: true
+    car: car
   },
   mutations: {
     // 加购物车
@@ -55,6 +54,16 @@ export default new Vuex.Store({
     }
   },
   getters: {
+    //   商品单选影响全选按钮
+    getSelAllGoods (state) {
+      let flag = false
+      if (state.car.length > 0) {
+        flag = state.car.some(item => {
+          return item.selected === false
+        })
+      }
+      return !flag
+    },
     // 购物车商品件数
     getAllCount (state) {
       let num = 0

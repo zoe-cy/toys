@@ -26,7 +26,7 @@
           </div>
           <div>库存：{{ goods.goods_num }}件</div>
           <div>
-            <el-button type="warning" plain @click="toCars(),addToCar(goods)">立即购买</el-button>
+            <el-button type="warning" plain @click="toCart(),addToCar(goods)">立即购买</el-button>
             <el-button type="warning" plain @click="addToCar(goods)"
               >加入购物车</el-button
             >
@@ -357,8 +357,8 @@ export default {
         showConfirmButton: false
       })
     },
-    toCars () {
-      this.$router.push({ name: 'cars' })
+    toCart () {
+      this.$router.push({ name: 'cart' })
     },
     addToCar (goods) {
       // 数据传给vuex

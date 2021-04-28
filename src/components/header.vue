@@ -19,11 +19,7 @@
           autocomplete="true"
           v-model="msg"
         />
-        <i class="btn iconfont icon-sousuo" @click="toGoodsSearch(msg)"></i>
-      </div>
-      <div class="cars" @click="toCars">
-        <i class="btn2 iconfont icon-icone6002_"></i>
-        <span>购物车<span class="count">({{$store.getters.getAllCount | getCount}})</span></span>
+        <i class="btn iconfont icon-sousuo" @click="toGoodsList(msg)"></i>
       </div>
     </div>
   </div>
@@ -32,8 +28,6 @@
 export default {
   data () {
     return {
-      flag: -1,
-      num: 0,
       msg: ''
     }
   },
@@ -46,22 +40,8 @@ export default {
     },
     toIntro () {
       this.$router.push({ name: 'intro' })
-    },
-    toGoodsSearch (msg) {
-      this.$router.push({ name: 'goodsSearch', params: { msg } })
-    },
-    toCars () {
-      this.$router.push({ name: 'cars' })
-    }
-  },
-  filters: {
-    getCount (val) {
-      if (val > 100) {
-        return '100+'
-      }
     }
   }
-  // props: ['tip']
 }
 </script>
 <style scoped>
@@ -94,7 +74,7 @@ export default {
 }
 .nav {
   float: left;
-  width: 600px;
+  width: 710px;
   height: 100px;
   padding: 0 49px;
 }
@@ -111,13 +91,13 @@ export default {
 .search {
   float: left;
   height: 100px;
-  width: 200px;
+  width: 250px;
   display: flex;
   align-items: center;
 }
 .search .ipt {
   height: 40px;
-  width: 160px;
+  width: 210px;
   border: 1px solid rgb(190, 190, 190);
   border-right: none;
   padding-left: 10px;
@@ -138,25 +118,5 @@ export default {
   border-color: var(--hover-color);
   background-color: var(--hover-color);
   color: var(--background-color);
-}
-.cars {
-  float: left;
-  width: 160px;
-  height: 100px;
-  text-align: right;
-}
-.cars:hover {
-  color: var(--hover-color);
-}
-.cars i {
-  font-size: 28px;
-}
-.cars>span {
-  padding-left: 10px;
-}
-.count {
-  text-align: center;
-  display: inline-block;
-  width: 50px;
 }
 </style>

@@ -19,7 +19,7 @@
   </div>
 </template>
 <script>
-import banners from '../components/index/banners'
+import banners from '../components/indexBanners'
 import tGoodsbox from '../components/goodsBox'
 export default {
   components: {

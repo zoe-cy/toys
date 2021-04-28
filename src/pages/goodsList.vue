@@ -1,8 +1,15 @@
 <template>
   <div class="goods-list">
     <div class="header">
-      <span>{{category}}</span>
-      <span>></span>
+      <span v-if="!isSearch">
+        <span>{{category}}</span>
+        <span>></span>
+      </span>
+      <span v-else>
+        <span>全部结果</span>
+        <span>></span>
+        <span>{{category}}</span>
+      </span>
       <span :class="['right',flag ==3?'active':'']" data-active="3" @click="toTurn($event);toPrice()">
         价格<i class="iconfont icon-up"></i>
       </span>
@@ -39,6 +46,7 @@ export default {
   data () {
     return {
       flag: 1,
+      isSearch: false,
       goodsList: [],
       goodsTable: [
         {
@@ -291,6 +299,7 @@ export default {
     toTurn (e) {
       this.flag = e.target.dataset.active
     },
+    // 判断路由传值
     toGet () {
       if (this.category === '全部商品') {
         let arr = []
@@ -300,10 +309,15 @@ export default {
         this.goodsList = arr.reduce((a, b) => {
           return a.concat(b)
         })
-      } else {
+      } else if (this.goodsTable.filter(item => {
+        return item.category === this.category
+      }).length > 0) {
         this.goodsList = this.goodsTable.find(item => {
           return item.category === this.category
         }).goods_list
+      } else {
+        this.isSearch = true
+        this.goodsList = []
       }
     },
     // 商品排序
@@ -342,7 +356,7 @@ export default {
   margin: 0 10px;
   line-height: 80px;
 }
-.header>span {
+.header span {
   width: 80px;
   margin: 0 5px;
 }

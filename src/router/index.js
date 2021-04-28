@@ -4,7 +4,7 @@ import index from '../pages/index'
 import goodsSearch from '../pages/goodsSearch'
 import goodsList from '../pages/goodsList'
 import goodsDetail from '../pages/goodsDetail'
-import cars from '../pages/cars'
+import cart from '../pages/cart'
 import serves from '../pages/serves'
 import intro from '../pages/intro'
 Vue.use(VueRouter)
@@ -35,9 +35,9 @@ const router = new VueRouter({
       props: true
     },
     {
-      path: '/cars',
-      component: cars,
-      name: 'cars',
+      path: '/cart',
+      component: cart,
+      name: 'cart',
       props: true
     },
     {
